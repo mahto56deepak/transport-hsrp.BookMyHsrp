@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Enquiry - Transport Service</title>
+
+    <link href="../cdn.jsdelivr.net/npm/bootstrap%405.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --brand: #0d6efd;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --soft: #f5f7fb;
+      --border: #e5e7eb;
+      --brand: #0d6efd;
+      --soft: #f5f7fb;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --muted: #6b7280;
+      --shadow: 0 10px 25px rgba(17, 24, 39, 0.06);
+    }
+    body {
+      background: var(--soft);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .nav-glass {
+      background: rgba(255, 255, 255, 0.82) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.7);
+    }
+    .nlogo {
+      width: 140px;
+      height: auto;
+    }
+    .card-pro {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      background: var(--card);
+    }
+    .form-label {
+      font-weight: 800;
+    }
+    .form-control,
+    .form-select {
+      border-radius: 14px;
+      border: 1px solid #e5e7eb;
+      padding: .75rem .9rem;
+    }
+    .form-control:focus,
+    .form-select:focus {
+      border-color: rgba(13, 110, 253, .55);
+      box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .12);
+    }
+    .section-title {
+      font-weight: 900;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: var(--brand);
+      font-size: .85rem;
+    }
+    .btn-next {
+      border-radius: 14px;
+      padding: 12px 18px;
+      font-weight: 900;
+    }
+    .footer {
+      margin-top: 32px;
+      padding: 18px 0;
+      background: #0b1220;
+      color: rgba(255, 255, 255, .80);
+    }
+    .brand-text {
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #111827;
+      font-size: 1.05rem;
+      padding: .45rem .85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(13, 110, 253, .25);
+      background: rgba(13, 110, 253, .08);
+    }
+     .payment-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .order-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .order-header h2 {
+            font-weight: 800;
+            color: #111827;
+        }
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: var(--muted);
+        }
+        .step-item.active {
+            color: var(--brand);
+        }
+        .step-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            display: grid;
+            place-items: center;
+            font-size: 14px;
+        }
+        .active .step-num {
+            background: var(--brand);
+            color: white;
+        }
+        .card-payment {
+            background: var(--card);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+        .payment-header {
+            padding: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+        .payment-body {
+            padding: 30px;
+        }
+        .summary-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .summary-row:last-child {
+            margin-bottom: 0;
+            padding-top: 10px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .qr-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .qr-frame {
+            background: white;
+            border: 2px solid var(--brand);
+            border-radius: 20px;
+            padding: 15px;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 16px rgba(13, 110, 253, 0.1);
+        }
+        .qr-frame img {
+            width: 220px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .form-label {
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        .form-control {
+            border-radius: 12px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+        }
+        .btn-submit {
+            border-radius: 12px;
+            padding: 15px;
+            font-weight: 800;
+            width: 100%;
+            font-size: 1.1rem;
+            background: #198754;
+            border: none;
+            color: white;
+            margin-top: 20px;
+        }
+        .btn-back {
+            font-weight: 700;
+            color: var(--muted);
+            text-decoration: none;
+        }
+        .btn-download {
+            font-size: 14px;
+            color: var(--brand);
+            text-decoration: none;
+            font-weight: 700;
+            display: block;
+            margin-top: 5px;
+        }
+
+.step{display:none;}
+.step.active{display:block;}      
+  </style>
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKJ4JCJ5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+ <nav class="navbar navbar-expand-lg nav-glass sticky-top">
+    <div class="container-fluid py-2">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index-2.html" aria-label="Transport Department Home">
+        <span class="brand-text">Transport Department</span>
+      </a>
+      <div class="ms-auto d-flex gap-2">
+        <a href="index.html" class="btn btn-outline-primary rounded-pill fw-bold">Home</a>
+      </div>
+    </div>
+  </nav>
+ <form id="hsrpForm" method="post"> 
+<div class="step active" id="step1">
+  <!-- Enquiry Form -->
+  <section class="py-5">
+    <div class="container-fluid">
+      <div class="text-center mb-4">
+        <h2 class="fw-black" style="font-weight:900;">Apply Online</h2>
+        <p class="text-muted mb-0">Fill your details and complete the payment to proceed.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="card card-pro">
+            <div class="card-body p-4 p-lg-5">
+
+              <h4 class="mb-1" style="font-weight:900;">New Enquiry Form</h4>
+              <p class="text-muted mb-4">Fields marked with <span class="text-danger">*</span> are required.</p>
+
+              
+                <div class="row g-3">
+                  <!-- Name -->
+                  <div class="col-md-6">
+                    <label class="form-label">Full Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Mobile Number <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="mobile" id="mobile" maxlength="10" placeholder="10 digit mobile" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Email ID <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" required>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">State <span class="text-danger">*</span></label>
+                    <select class="form-select" name="state" id="state" required>
+                      <option value="" selected disabled>Select Vehicle State</option>
+                      <option>Andhra Pradesh</option>
+                      <option>Arunachal Pradesh</option>
+                      <option>Assam</option>
+                      <option>Bihar</option>
+                      <option>Chhattisgarh</option>
+                      <option>Goa</option>
+                      <option>Gujarat</option>
+                      <option>Haryana</option>
+                      <option>Himachal Pradesh</option>
+                      <option>Jharkhand</option>
+                      <option>Karnataka</option>
+                      <option>Kerala</option>
+                      <option>Madhya Pradesh</option>
+                      <option>Maharashtra</option>
+                      <option>Manipur</option>
+                      <option>Meghalaya</option>
+                      <option>Mizoram</option>
+                      <option>Nagaland</option>
+                      <option>Odisha</option>
+                      <option>Punjab</option>
+                      <option>Rajasthan</option>
+                      <option>Sikkim</option>
+                      <option>Tamil Nadu</option>
+                      <option>Telangana</option>
+                      <option>Tripura</option>
+                      <option>Uttar Pradesh</option>
+                      <option>Uttarakhand</option>
+                      <option>West Bengal</option>
+                      <option>Delhi</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Application Type <span class="text-danger">*</span></label>
+                    <select class="form-select" name="app_type" id="appType" required>
+                      <option value="New" selected>New Plate</option>
+                      <option value="Replacement">Replacement / Retain / Transfer</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Vehicle Type <span class="text-danger">*</span></label>
+                    <select class="form-select" name="v_type" id="vehicleType" required>
+                    <option value="">Select Vehicle Type</option>    
+                      <option value="Colour Sticker">Colour Sticker</option>
+                      <option value="Two Wheeler">Two Wheeler</option>
+                      <option value="Two Wheeler Electric">Two Wheeler Electric</option>
+                      <option value="Three Wheeler">Three Wheeler</option>
+                      <option value="Electric Vehicle">Electric Vehicle</option>
+                      <option value="Tractor & Trailer">Tractor & Trailer</option>
+                      <option value="Four Wheeler">Four Wheeler</option>
+                      <option value="Four Wheeler Electric">Four Wheeler Electric</option>
+                      <option value="Heavy Vehicle">Heavy Vehicle</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Vehicle Reg. No <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control text-uppercase" name="vehicle_reg" id="vehicle" maxlength="12" required placeholder="e.g. BR01AB1234">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Chassis No <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="chassis_no" id="chassis" maxlength="5" required placeholder="Last 5 digits">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Engine No <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="engine_no" id="engine" maxlength="5" required placeholder="Last 5 digits">
+                  </div>
+
+                  <!-- Address -->
+                  <div class="col-md-6">
+                    <label class="form-label">Address <span class="text-danger">*</span></label>
+                    <textarea class="form-control" name="address" id="address" rows="2" required placeholder="House no, street, area..."></textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Pin Code <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="pincode" id="pincode" maxlength="6" required placeholder="6 digit pincode">
+                  </div>
+
+                  <!-- Submit -->
+                  <div class="col-md-6 d-flex align-items-end">
+                    <button type="button" onclick="validateStep1()" class="btn btn-primary btn-next w-100">PROCEED TO PAYMENT →</button>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="step" id="step2">
+  <div class="container-fluid payment-container">
+        <div class="order-header">
+            <h2>Order Form</h2>
+        </div>
+        <div class="card-payment">
+            <div class="payment-header">
+                <h4 class="fw-bold mb-1">Payment</h4>
+                <p class="text-muted mb-0">Scan the QR to pay. After payment Booking will be confirmed.</p>
+            </div>
+            <div class="payment-body">
+                <div class="summary-box">
+                    <div class="summary-row">
+                        <span>Vehicle Type:</span>
+                        <span id="vehicleTypeText"></span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Number of Plates:</span>
+                        <span>Pair</span>
+                    </div>
+                    <div class="summary-row text-primary">
+                        <span>Total Payment Payable :</span>
+                        <span id="priceText">₹ </span>
+                    </div>
+                </div>
+                <div class="qr-section">
+                    <p class="fw-bold mb-2">Payment QR Code</p>
+                    <div class="qr-frame">
+                        <img id="qrImg" src="images/1080.png" alt="Payment QR">
+                    </div>
+                    <a href="#" class="btn-download" onclick="downloadQR()">Save QR Code & Download</a>
+                </div>
+                    <div class="mb-3">
+                        <label class="form-label">Transaction ID*</label>
+                        <input type="text" class="form-control" placeholder="Enter your transaction ID" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Upload Payment Proof</label>
+                        <input type="file" class="form-control" accept="image/*">
+                        <small class="text-muted mt-1 d-block">Upload screenshot or receipt of your payment.</small>
+                    </div>
+                    <button type="submit" class="btn-submit shadow" name="submit_order">Submit Order</button>
+                    <div class="text-center mt-3">
+                        <a href="enquiry.html" class="btn-back">Back</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<script>
+function validateStep1() {
+
+    let name = document.getElementById("name").value.trim();
+    let mobile = document.getElementById("mobile").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let state = document.getElementById("state").value;
+    let appType = document.getElementById("appType").value;
+    let vehicleType = document.getElementById("vehicleType").value;
+    let vehicle = document.getElementById("vehicle").value.trim();
+    let chassis = document.getElementById("chassis").value.trim();
+    let engine = document.getElementById("engine").value.trim();
+    let address = document.getElementById("address").value.trim();
+    let pincode = document.getElementById("pincode").value.trim();
+    if(name === ""){
+        alert("Please enter your name");
+        return false;
+    }
+
+    if(mobile === "" || mobile.length != 10){
+        alert("Enter valid mobile number");
+        return false;
+    }
+
+    if(email === ""){
+        alert("Please enter your email");
+        return false;
+    }
+        if(state === ""){
+        alert("Select state type");
+        return false;
+    }
+        if(appType === ""){
+        alert("Select application type");
+        return false;
+    }
+        if(vehicleType === ""){
+        alert("Select vehicle type");
+        return false;
+    }
+    if(vehicle === ""){
+        alert("Please enter vehicle registration number");
+        return false;
+    }
+    if(chassis === ""){
+        alert("Please enter chassis registration number");
+        return false;
+    }
+    if(engine === ""){
+        alert("Please enter engine registration number");
+        return false;
+    }
+    if(address === ""){
+        alert("Please enter address registration number");
+        return false;
+    }
+    if(pincode === ""){
+        alert("Please enter pincode ");
+        return false;
+    }
+    // If validation passed → go to step 2
+    goToStep2();
+}
+
+function goToStep2(){ 
+let type=document.getElementById("vehicleType").value;
+ const qrImg = document.getElementById('qrImg');
+const priceText = document.getElementById('priceText');
+const vehicleTypeText = document.getElementById('vehicleTypeText');
+const config = {
+            'Colour Sticker':               { img: 'images/1080.png', price: '₹ 1080.00' },
+            'Two Wheeler':                  { img: 'images/1080.png', price: '₹ 1080.00' },
+            'Two Wheeler Electric':         { img: 'images/1080.png', price: '₹ 1080.00' },
+            'Three Wheeler':                { img: 'images/1290.png', price: '₹ 1290.00' },
+            'Electric Vehicle':             { img: 'images/1290.png', price: '₹ 1290.00' },
+            'Tractor & Trailer':            { img: 'images/1479.png', price: '₹ 1479.00' },
+            'Four Wheeler':                 { img: 'images/1290.png', price: '₹ 1290.00' },
+            'Four Wheeler Electric':        { img: 'images/1290.png', price: '₹ 1290.00' },
+            'Heavy Vehicle':                { img: 'images/1479.png', price: '₹ 1479.00' },
+            'Replacement':                  { img: 'images/1290.png', price: '₹ 1290.00' }
+        };
+const settings = config[type] || config['Two Wheeler'];
+
+        // Apply to page
+        qrImg.src = settings.img;
+        priceText.innerText = settings.price;
+        vehicleTypeText.innerText = (type === 'Replacement') 
+            ? 'Replacement / Retain / Transfer' 
+            : type;
+document.getElementById("step1").classList.remove("active");
+document.getElementById("step2").classList.add("active");
+}
+</script>
+  <footer class="footer">
+    <div class="container-fluid text-center">
+      <small>© 2026. All Rights Reserved.</small>
+    </div>
+  </footer>
+<script src="../code.jquery.com/jquery-3.7.0.slim.min.js"></script>
+    <script src="../cdn.jsdelivr.net/npm/bootstrap%405.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<!-- Mirrored from www.transport-hsrp.co.in/enquiry by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 18 Apr 2026 11:08:34 GMT -->
+</html>
